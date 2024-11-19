@@ -24,16 +24,6 @@ pip install -r requirements.txt
 
 Запустите приложение:
 
-python main.py
-Структура проекта
-├── db.py                # Логика работы с базой данных
-├── main.py              # Главный скрипт запуска
-├── ui/                  # Папка с интерфейсами
-│   ├── main_window.py   # Главное окно приложения
-│   ├── add_session.py   # Диалоговое окно для добавления сеанса
-│   └── booking_form.py  # Диалоговое окно для бронирования мест
-└── requirements.txt     # Список зависимостей
-Описание кода
 db.py — Работа с базой данных
 Класс Database отвечает за взаимодействие с MongoDB. В нем реализованы методы для получения, добавления и обновления сеансов.
 
@@ -63,7 +53,8 @@ class Database:
 
     def update_seats(self, session_id, change):
         """Обновляет количество мест в сеансе."""
-        self.sessions.update_one({"_id": ObjectId(session_id)}, {"$inc": {"seats": change}})```
+        self.sessions.update_one({"_id": ObjectId(session_id)}, {"$inc": {"seats": change}})
+```
 Описание методов:
 get_sessions(): Получение списка всех сеансов.
 get_session(session_id): Получение информации о конкретном сеансе по ID.
@@ -114,7 +105,8 @@ class MainWindow(QMainWindow):
         """Открывает окно для добавления нового сеанса."""
         dialog = AddSessionDialog(self.db, self)
         if dialog.exec():
-            self.refresh_table()```
+            self.refresh_table()
+```
 Описание методов:
 init_table(): Инициализация таблицы для отображения сеансов.
 refresh_table(): Обновление содержимого таблицы с сеансами.
@@ -167,7 +159,8 @@ class AddSessionDialog(QDialog):
             QMessageBox.information(self, "Успех", "Сеанс добавлен.")
             self.accept()
         else:
-            QMessageBox.warning(self, "Ошибка", "Не удалось добавить сеанс.")```
+            QMessageBox.warning(self, "Ошибка", "Не удалось добавить сеанс.")
+```
 Описание методов:
 add_session(): Добавление нового сеанса в базу данных.
 ui/booking_form.py — Диалоговое окно для бронирования мест
