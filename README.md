@@ -16,10 +16,11 @@
 
 1. Клонируйте репозиторий на ваш локальный компьютер.
    ```bash
-   git clone https://github.com/your-repo/booking-system.git
+   git clone https://github.com/IgorUshakov05/zachet2.git
 Установите необходимые зависимости:
-
+```bash
 pip install -r requirements.txt
+```
 Убедитесь, что у вас установлен MongoDB и сервер запущен на localhost:27017.
 
 Запустите приложение:
